@@ -1,0 +1,28 @@
+.block {
+  padding: 20px;
+  margin: 20px;
+  position: relative;
+  top: 250px; }
+
+.text {
+  position: relative;
+  text-align: center; }
+
+#subtext {
+  position: relative;
+  top: -10px; }
+
+.data-input {
+  position: relative;
+  text-align: center; }
+
+#first-name {
+  position: relative; }
+
+#second-name {
+  position: relative;
+  top: 5px; }
+
+#submit {
+  position: relative;
+  top: 25px; }

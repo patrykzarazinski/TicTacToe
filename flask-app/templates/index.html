@@ -1,0 +1,25 @@
+{%extends 'layout.html'%}
+{%block title%}Tic Tac Toe{%endblock%}
+{%block body%}
+<div class="block ">
+    <div class="text">
+        <h1>Tic Tac Toe game</h1>
+        <div id="subtext">
+            <p><em>Provide gamer names to play</em></p>
+        </div>
+    </div>
+    <div class="data-input">
+        <form>
+            <div id="first-name">
+                <input type="text" placeholder="Player one" autocomplete="off">
+            </div>
+            <div id="second-name">
+                <input type="text" placeholder="Player two" autocomplete="off">
+            </div>
+            <div id="submit">
+                <input type="submit" class="btn btn-primary btn-lg" value="Play">
+            </div>
+        </form>
+    </div>
+</div>
+{%endblock%}

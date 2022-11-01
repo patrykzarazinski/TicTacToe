@@ -1,0 +1,37 @@
+$position: relative;
+
+.block {
+    padding: 20px;
+    margin: 20px;
+    position: $position;
+    top: 250px;
+}
+
+.text {
+    position: $position;
+    text-align: center;
+}
+
+#subtext {
+    position: $position;
+    top: -10px;
+}
+
+.data-input {
+    position: $position;
+    text-align: center;
+}
+
+#first-name {
+    position: $position;
+}
+
+#second-name {
+    position: $position;
+    top: 5px;
+}
+
+#submit {
+    position: $position;
+    top: 25px;
+}
