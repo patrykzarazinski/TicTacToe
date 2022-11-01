@@ -6,8 +6,8 @@ function clearInput() {
 function main() {
     document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('form').onsubmit = () => {
-            let firstName = document.querySelector('#firstInput').value;
-            let secondName = document.querySelector('#secondInput').value;
+            const firstName = document.querySelector('#firstInput').value;
+            const secondName = document.querySelector('#secondInput').value;
             const pattern = /^[a-zA-Z][a-zA-Z0-9]+$/i;
 
             console.log(firstName);
