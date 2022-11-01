@@ -2,12 +2,12 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
     if request.method == 'POST':
         pass
     return render_template('index.html')
 
-@app.route('/game')
+@app.route('/game', methods=['POST'])
 def game():
-    return render_template('game.html')
+    return "<h2>Game development in progress<h2>"
