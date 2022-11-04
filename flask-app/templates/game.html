@@ -1,1 +1,49 @@
-<!--TODO-->
+{%extends 'layout.html' %}
+{%block title%}Tic Tac Toe{%endblock%}
+{%block body%}
+<div id="left-block">
+    <div class="player">
+        <div class="nick">
+            <span>{{playerOne}}</span>
+        </div>
+        <div class="info">
+            <table>
+                <tr>
+                    <td>Win</td>
+                    <td>int</td>
+                    <td>Draw</td>
+                    <td>int</td>
+                    <td>Lost</td>
+                    <td>int</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="right-block">
+    <div class="player">
+        <div class="nick">
+            <span>{{playerTwo}}</span>
+        </div>
+        <div class="info">
+            <table>
+                <tr>
+                    <td>Win</td>
+                    <td>int</td>
+                    <td>Draw</td>
+                    <td>int</td>
+                    <td>Lost</td>
+                    <td>int</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<!---for color for background deepskyblue-->
+<svg id="tic-tac-toe-block" width="654px" height="654px">
+    <path class="line" d="M0 214 L654 214" stroke="darkslategrey" stroke-width="5"/>
+    <path class="line" d="M0 428 L654 428" stroke="darkslategrey" stroke-width="5"/>
+    <path class="line" d="M214 0 L214 654" stroke="darkslategrey" stroke-width="5"/>
+    <path class="line" d="M428 0 L428 654" stroke="darkslategrey" stroke-width="5"/>
+</svg>
+{%endblock%}

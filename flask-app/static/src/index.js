@@ -13,13 +13,14 @@ function main() {
             console.log(firstName);
             console.log(secondName);
 
-            if (firstName.length == 0 || secondName == 0) {
+            if (firstName.length == 0 || secondName.length == 0) {
                 alert('Please provide names for both players')
+                clearInput();
                 return false;
             }
 
             const expectedNameSize = 3;
-            if (firstName.length < expectedNameSize || secondName < expectedNameSize) {
+            if (firstName.length < expectedNameSize || secondName.length < expectedNameSize) {
                 alert(`Size of each name must have at least ${expectedNameSize} alphanumeric signs`)
                 clearInput();
                 return false;
