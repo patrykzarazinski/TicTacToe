@@ -51,6 +51,7 @@ body {
     width: 50%;
     height: 10%;
     display: flex;
+    background-color: rgb(220, 249, 250);
 }
 
 #left-block {
@@ -67,6 +68,17 @@ body {
     text-align: center;
     position: relative;
     margin: auto auto;
+    height: 50px;
+    width: 250px;
+    background-color: rgb(130, 219, 219);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.nick,
+.info {
+    margin: auto;
 }
 
 #game {
@@ -81,4 +93,6 @@ body {
     width: 654px;
     height: 654px;
     margin: auto auto;
+    background-color: aquamarine;
+    border-radius: 15px;
 }
