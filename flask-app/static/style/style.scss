@@ -1,42 +1,84 @@
-$position: relative;
+$index-position: relative;
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
 
 //index.html
 
 .block {
     padding: 20px;
     margin: 20px;
-    position: $position;
+    position: $index-position;
     top: 250px;
 }
 
 .text {
-    position: $position;
+    position: $index-position;
     text-align: center;
 }
 
 #subtext {
-    position: $position;
+    position: $index-position;
     top: -10px;
 }
 
 .data-input {
-    position: $position;
+    position: $index-position;
     text-align: center;
 }
 
 #first-name {
-    position: $position;
+    position: $index-position;
 }
 
 #second-name {
-    position: $position;
+    position: $index-position;
     top: 5px;
 }
 
 #submit {
-    position: $position;
+    position: $index-position;
     top: 25px;
 }
 
 //game.html
-//TODO...
+
+%block-game {
+    position: absolute;
+    width: 50%;
+    height: 10%;
+    display: flex;
+}
+
+#left-block {
+    @extend %block-game;
+    left: 0;
+}
+
+#right-block {
+    @extend %block-game;
+    right: 0;
+}
+
+.player {
+    text-align: center;
+    position: relative;
+    margin: auto auto;
+}
+
+#game {
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    top: 10%;
+    display: flex;
+}
+
+#tic-tac-toe-block {
+    width: 654px;
+    height: 654px;
+    margin: auto auto;
+}

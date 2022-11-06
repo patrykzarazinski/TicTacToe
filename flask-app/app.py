@@ -11,3 +11,7 @@ def game():
     firstName = request.form.get('firstName')
     secondName = request.form.get('secondName')
     return render_template('game.html', playerOne=firstName, playerTwo=secondName)
+
+@app.route('/test')
+def test():
+    return render_template('test.html')
