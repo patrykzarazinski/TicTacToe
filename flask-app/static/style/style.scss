@@ -117,4 +117,20 @@ body {
     border-right: 6px;
     padding: 6px;
     vertical-align: middle;
+    z-index: 1;
+}
+
+%cross-cirlce {
+    height: 198px;
+    width: 198px;
+}
+
+.cross {
+    @extend %cross-cirlce;
+    display: none;
+}
+
+.circle {
+    @extend %cross-cirlce;
+    display: none;
 }
