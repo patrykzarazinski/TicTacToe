@@ -86,13 +86,35 @@ body {
     width: 100%;
     height: 90%;
     top: 10%;
-    display: flex;
+}
+
+%game-position {
+    left: 50%;
+    margin-left: -327px;
+    top: 50%;
+    margin-top: -327px;
 }
 
 #tic-tac-toe-block {
+    @extend %game-position;
+    position: absolute;
     width: 654px;
     height: 654px;
-    margin: auto auto;
     background-color: aquamarine;
     border-radius: 15px;
+}
+
+#game-block {
+    @extend %game-position;
+    position: relative;
+    border-collapse: separate;
+    border-spacing: 6px;
+}
+
+.cell {
+    height: 210px;
+    width: 210px;
+    border-right: 6px;
+    padding: 6px;
+    vertical-align: middle;
 }
