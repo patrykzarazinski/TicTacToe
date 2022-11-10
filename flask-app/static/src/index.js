@@ -13,7 +13,7 @@ function main() {
             console.log(firstName);
             console.log(secondName);
 
-            if (firstName.length == 0 || secondName.length == 0) {
+            if (firstName.length === 0 || secondName.length === 0) {
                 alert('Please provide names for both players')
                 clearInput();
                 return false;
