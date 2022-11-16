@@ -95,11 +95,15 @@ body {
     margin-top: -327px;
 }
 
-#tic-tac-toe-block {
-    @extend %game-position;
-    position: absolute;
+%block-size {
     width: 654px;
     height: 654px;
+}
+
+#tic-tac-toe-block {
+    @extend %game-position;
+    @extend %block-size;
+    position: absolute;
     background-color: aquamarine;
     border-radius: 15px;
 }
@@ -132,5 +136,44 @@ body {
 
 .circle {
     @extend %cross-cirlce;
+    display: none;
+}
+
+#win-line {
+    @extend %game-position;
+    @extend %block-size;
+    position: absolute;
+    z-index: -1;
+}
+
+#diagonally-left-top {
+    display: none;
+}
+
+#diagonally-right-top {
+    display: none;
+}
+
+#horizontally-top {
+    display: none;
+}
+
+#horizontally-middle {
+    display: none;
+}
+
+#horizontally-bottom {
+    display: none;
+}
+
+#vertically-left {
+    display: none;
+}
+
+#vertically-middle {
+    display: none;
+}
+
+#vertically-right {
     display: none;
 }
