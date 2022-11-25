@@ -4,7 +4,7 @@ import {
   circle,
   possibilitiesOfGameEnd,
   rowMapTable,
-  columnMapTable
+  columnMapTable,
 } from "./utils/constants.js";
 
 // prettier-ignore
@@ -38,8 +38,12 @@ function doesPossibilityWins(mark, possibility) {
 function checkIfSomeoneWon(i) {
   const possibilities = possibilitiesOfGameEnd[i];
   for (let possibility of possibilities) {
-    doesPossibilityWins(board[i], possibility) ? makeWin(i, possibility) : {};
+    if (doesPossibilityWins(board[i], possibility)) {
+      makeWin(i, possibility);
+      return true;
+    }
   }
+  return false;
 }
 
 function takeActionOnClick(i) {
@@ -61,11 +65,9 @@ function takeActionOnClick(i) {
 
 function main() {
   document.addEventListener("DOMContentLoaded", function () {
-    let cells = document.querySelectorAll(".cell");
-
-    for (let i = 0; i < cells.length; i++) {
-      cells[i].onclick = takeActionOnClick(i);
-    }
+    document.querySelectorAll(".cell").forEach(function (cell, i) {
+      cell.onclick = takeActionOnClick(i);
+    });
   });
 }
 
