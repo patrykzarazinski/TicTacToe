@@ -1,7 +1,7 @@
 {%extends 'layout.html' %}
 {%block title%}Tic Tac Toe{%endblock%}
 {%block head%}
-<script src="../static/src/game.js"></script>
+<script type="module" src="../static/src/game.js"></script>
 {%endblock%}
 {%block body%}
 <div id="left-block">
@@ -47,7 +47,6 @@
     </div>
 </div>
 <div id="game">
-    <!---for color for background deepskyblue-->
     <svg id="tic-tac-toe-block">
         <path d="M0 219 L654 219" stroke="darkslategrey" stroke-width="6px" />
         <path d="M0 435 L654 435" stroke="darkslategrey" stroke-width="6px" />
@@ -56,15 +55,15 @@
     </svg>
     <table id="game-block">
         <tbody>
-            {% for _ in range(3)%}
-            <tr>
-                {%for _ in range(3)%}
+            {% for row in range(3)%}
+            <tr class="_{{row}}">
+                {%for column in range(3)%}
                 <td class="cell">
-                    <svg class="cross">
+                    <svg class="cross _{{column}}">
                         <path d="M0 0 L219 219" stroke="darkslategrey" stroke-width="6px" />
                         <path d="M0 200 L200 0" stroke="darkslategrey" stroke-width="6px" />
                     </svg>
-                    <svg class="circle">
+                    <svg class="circle _{{column}}">
                         <circle cx="99px" cy="99px" r="93px" stroke="darkslategrey" stroke-width="6px" fill="none" />
                     </svg>
                 </td>

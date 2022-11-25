@@ -1,58 +1,72 @@
-const rowMapTable = {
-    0: "0", 1: "0", 2: "0",
-    3: "1", 4: "1", 5: "1",
-    6: "2", 7: "2", 8: "2"
+import {
+  none,
+  cross,
+  circle,
+  possibilitiesOfGameEnd,
+  rowMapTable,
+  columnMapTable
+} from "./utils/constants.js";
+
+// prettier-ignore
+let board = {
+    0: none, 1: none, 2: none,
+    3: none, 4: none, 5: none,
+    6: none, 7: none, 8: none
 }
 
-const columnMapTable = {
-    0: "0", 1: "1", 2: "2",
-    3: "0", 4: "1", 5: "2",
-    6: "0", 7: "1", 8: "2"
+let crossFlag = true;
+
+function makeWin(i, possibility) {
+  const mark = board[i] == cross ? "cross" : "circle";
+  for (let item of possibility) {
+    const row = rowMapTable[item];
+    const column = columnMapTable[item];
+    // prettier-ignore
+    document.querySelector(`._${row} .${mark}._${column}`).style.backgroundColor = "yellow";
+    document.querySelector(`#win-line`).style.zIndex = "2";
+  }
 }
 
-const none = 0
-const cross = 1
-const circle = 2
-
-let board = [
-    [none, none, none],
-    [none, none, none],
-    [none, none, none]
-]
-
-let crossFlag = true
-
-function getCell(i) {
-    return board[rowMapTable[i]][columnMapTable[i]]
+function doesPossibilityWins(mark, possibility) {
+  return (
+    board[possibility[0]] == mark &&
+    board[possibility[1]] == mark &&
+    board[possibility[2]] == mark
+  );
 }
 
-function displayCrossOrCircle(i) {
-    return () => {
-        if (getCell(i) === none) {
-            console.log(crossFlag)
-            if (crossFlag) {
-                document.getElementsByClassName('cross')[i].style.display = "block";
-                crossFlag = false;
-                board[rowMapTable[i]][columnMapTable[i]] = cross
-            } else {
-                document.getElementsByClassName('circle')[i].style.display = "block";
-                crossFlag = true;
-                board[rowMapTable[i]][columnMapTable[i]] = circle
-            }
-            console.log(board)
-        }
+function checkIfSomeoneWon(i) {
+  const possibilities = possibilitiesOfGameEnd[i];
+  for (let possibility of possibilities) {
+    doesPossibilityWins(board[i], possibility) ? makeWin(i, possibility) : {};
+  }
+}
+
+function takeActionOnClick(i) {
+  return () => {
+    if (board[i] === none) {
+      if (crossFlag) {
+        document.getElementsByClassName("cross")[i].style.display = "block";
+        crossFlag = false;
+        board[i] = cross;
+      } else {
+        document.getElementsByClassName("circle")[i].style.display = "block";
+        crossFlag = true;
+        board[i] = circle;
+      }
+      checkIfSomeoneWon(i);
     }
+  };
 }
 
 function main() {
-    document.addEventListener('DOMContentLoaded', function () {
-        let cells = document.querySelectorAll('.cell')
+  document.addEventListener("DOMContentLoaded", function () {
+    let cells = document.querySelectorAll(".cell");
 
-        for (let i = 0; i < cells.length; i++) {
-            console.log("Welcome in every iteration")
-            cells[i].onclick = displayCrossOrCircle(i)
-        }
-    })
+    for (let i = 0; i < cells.length; i++) {
+      cells[i].onclick = takeActionOnClick(i);
+    }
+  });
 }
 
-main()
+main();
