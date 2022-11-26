@@ -184,3 +184,18 @@ body {
     top: 50%;
     margin-top: -38px;
 }
+
+@media (max-width: 670px),
+(max-height: 730px) {
+    #screen {
+        height: 100%;
+        width: 100%;
+        display: none;
+    }
+
+    #info {
+        position: relative;
+        top: 50%;
+        text-align: center;
+    }
+}

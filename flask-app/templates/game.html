@@ -4,88 +4,92 @@
 <script type="module" src="../static/src/game.js"></script>
 {%endblock%}
 {%block body%}
-<div id="left-block">
-    <div class="player">
-        <div class="nick">
-            <span>{{playerOne}}</span>
-        </div>
-        <div class="info">
-            <table>
-                <tbody>
-                    <tr>
-                        <td>Win</td>
-                        <td>int</td>
-                        <td>Draw</td>
-                        <td>int</td>
-                        <td>Lost</td>
-                        <td>int</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-<div id="right-block">
-    <div class="player">
-        <div class="nick">
-            <span>{{playerTwo}}</span>
-        </div>
-        <div class="info">
-            <table>
-                <tbody>
-                    <tr>
-                        <td>Win</td>
-                        <td>int</td>
-                        <td>Draw</td>
-                        <td>int</td>
-                        <td>Lost</td>
-                        <td>int</td>
-                    </tr>
-                </tbody>
-            </table>
+<div id="screen">
+    <div id="left-block">
+        <div class="player">
+            <div class="nick">
+                <span>{{playerOne}}</span>
+            </div>
+            <div class="info">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Win</td>
+                            <td>int</td>
+                            <td>Draw</td>
+                            <td>int</td>
+                            <td>Lost</td>
+                            <td>int</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
-<div id="game">
-    <svg id="tic-tac-toe-block">
-        <path d="M0 219 L654 219" stroke="darkslategrey" stroke-width="6px" />
-        <path d="M0 435 L654 435" stroke="darkslategrey" stroke-width="6px" />
-        <path d="M219 0 L219 654" stroke="darkslategrey" stroke-width="6px" />
-        <path d="M435 0 L435 654" stroke="darkslategrey" stroke-width="6px" />
-    </svg>
-    <table id="game-block">
-        <tbody>
-            {% for row in range(3)%}
-            <tr class="_{{row}}">
-                {%for column in range(3)%}
-                <td class="cell">
-                    <svg class="cross _{{column}}">
-                        <path d="M0 0 L219 219" stroke="darkslategrey" stroke-width="6px" />
-                        <path d="M0 200 L200 0" stroke="darkslategrey" stroke-width="6px" />
-                    </svg>
-                    <svg class="circle _{{column}}">
-                        <circle cx="99px" cy="99px" r="93px" stroke="darkslategrey" stroke-width="6px" fill="none" />
-                    </svg>
-                </td>
+    <div id="right-block">
+        <div class="player">
+            <div class="nick">
+                <span>{{playerTwo}}</span>
+            </div>
+            <div class="info">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Win</td>
+                            <td>int</td>
+                            <td>Draw</td>
+                            <td>int</td>
+                            <td>Lost</td>
+                            <td>int</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="game">
+        <svg id="tic-tac-toe-block">
+            <path d="M0 219 L654 219" stroke="darkslategrey" stroke-width="6px" />
+            <path d="M0 435 L654 435" stroke="darkslategrey" stroke-width="6px" />
+            <path d="M219 0 L219 654" stroke="darkslategrey" stroke-width="6px" />
+            <path d="M435 0 L435 654" stroke="darkslategrey" stroke-width="6px" />
+        </svg>
+        <table id="game-block">
+            <tbody>
+                {% for row in range(3)%}
+                <tr class="_{{row}}">
+                    {%for column in range(3)%}
+                    <td class="cell">
+                        <svg class="cross _{{column}}">
+                            <path d="M0 0 L219 219" stroke="darkslategrey" stroke-width="6px" />
+                            <path d="M0 200 L200 0" stroke="darkslategrey" stroke-width="6px" />
+                        </svg>
+                        <svg class="circle _{{column}}">
+                            <circle cx="99px" cy="99px" r="93px" stroke="darkslategrey" stroke-width="6px"
+                                fill="none" />
+                        </svg>
+                    </td>
+                    {%endfor%}
+                </tr>
                 {%endfor%}
-            </tr>
-            {%endfor%}
-        </tbody>
-    </table>
-    <svg id="win-line">
-        <path id="diagonally-left-top" d="M25 25 L629 629" stroke="darkslategrey" stroke-width="6px"/>
-        <path id="diagonally-right-top" d="M629 25 L25 629" stroke="darkslategrey" stroke-width="6px"/>
+            </tbody>
+        </table>
+        <svg id="win-line">
+            <path id="diagonally-left-top" d="M25 25 L629 629" stroke="darkslategrey" stroke-width="6px" />
+            <path id="diagonally-right-top" d="M629 25 L25 629" stroke="darkslategrey" stroke-width="6px" />
 
-        <path id="horizontally-top" d="M25 109 L629 109" stroke="darkslategrey" stroke-width="6px"/>
-        <path id="horizontally-middle" d="M25 327 L629 327" stroke="darkslategrey" stroke-width="6px"/>
-        <path id="horizontally-bottom" d="M25 545 L629 545" stroke="darkslategrey" stroke-width="6px"/>
+            <path id="horizontally-top" d="M25 109 L629 109" stroke="darkslategrey" stroke-width="6px" />
+            <path id="horizontally-middle" d="M25 327 L629 327" stroke="darkslategrey" stroke-width="6px" />
+            <path id="horizontally-bottom" d="M25 545 L629 545" stroke="darkslategrey" stroke-width="6px" />
 
-        <path id="vertically-left" d="M109 25 L109 629" stroke="darkslategrey" stroke-width="6px"/>
-        <path id="vertically-middle" d="M327 25 L327 629" stroke="darkslategrey" stroke-width="6px"/>
-        <path id="vertically-right" d="M545 25 L545 629" stroke="darkslategrey" stroke-width="6px"/>
-    </svg>
-    <div id="button">
-        <button type="button" style="height:76px;width:150px;" class="btn btn-dark btn-lg">Start again</button>
+            <path id="vertically-left" d="M109 25 L109 629" stroke="darkslategrey" stroke-width="6px" />
+            <path id="vertically-middle" d="M327 25 L327 629" stroke="darkslategrey" stroke-width="6px" />
+            <path id="vertically-right" d="M545 25 L545 629" stroke="darkslategrey" stroke-width="6px" />
+        </svg>
+        <div id="button">
+            <button type="button" style="height:76px;width:150px;" class="btn btn-dark btn-lg">Start again</button>
+        </div>
     </div>
 </div>
+<p id="info">Use a higher screen resolution</p>
 {%endblock%}
