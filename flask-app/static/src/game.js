@@ -20,7 +20,7 @@ function makeWin(i, possibility) {
     const column = columnMapTable[item];
     // prettier-ignore
     document.querySelector(`._${row} .${mark}._${column}`).style.backgroundColor = "yellow";
-    document.querySelector(`#win-line`).style.zIndex = "2";
+    document.querySelector(`#win-field`).style.zIndex = "2";
   }
 }
 
@@ -72,7 +72,7 @@ function startAgain() {
   crossFlag = _crossFlag;
   clearCells("cross");
   clearCells("circle");
-  document.querySelector(`#win-line`).style.zIndex = "-1";
+  document.querySelector(`#win-field`).style.zIndex = "-1";
 }
 
 function main() {

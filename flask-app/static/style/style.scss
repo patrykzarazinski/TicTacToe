@@ -139,43 +139,11 @@ body {
     display: none;
 }
 
-#win-line {
+#win-field {
     @extend %game-position;
     @extend %block-size;
     position: absolute;
     z-index: -1;
-}
-
-#diagonally-left-top {
-    display: none;
-}
-
-#diagonally-right-top {
-    display: none;
-}
-
-#horizontally-top {
-    display: none;
-}
-
-#horizontally-middle {
-    display: none;
-}
-
-#horizontally-bottom {
-    display: none;
-}
-
-#vertically-left {
-    display: none;
-}
-
-#vertically-middle {
-    display: none;
-}
-
-#vertically-right {
-    display: none;
 }
 
 #button {
