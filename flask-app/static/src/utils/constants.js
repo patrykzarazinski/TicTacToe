@@ -39,3 +39,12 @@ export const columnMapTable = {
   3: "0", 4: "1", 5: "2",
   6: "0", 7: "1", 8: "2"
 }
+
+// prettier-ignore
+export const _board = {
+  0: none, 1: none, 2: none,
+  3: none, 4: none, 5: none,
+  6: none, 7: none, 8: none
+}
+
+export const _crossFlag = true;

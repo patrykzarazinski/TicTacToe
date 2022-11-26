@@ -5,16 +5,13 @@ import {
   possibilitiesOfGameEnd,
   rowMapTable,
   columnMapTable,
+  _board,
+  _crossFlag,
 } from "./utils/constants.js";
 
-// prettier-ignore
-let board = {
-    0: none, 1: none, 2: none,
-    3: none, 4: none, 5: none,
-    6: none, 7: none, 8: none
-}
+let board = structuredClone(_board);
 
-let crossFlag = true;
+let crossFlag = _crossFlag;
 
 function makeWin(i, possibility) {
   const mark = board[i] == cross ? "cross" : "circle";
@@ -63,8 +60,26 @@ function takeActionOnClick(i) {
   };
 }
 
+function clearCells(mark) {
+  document.querySelectorAll(`.${mark}`).forEach(function (item) {
+    item.style.backgroundColor = "";
+    item.style.display = "none";
+  });
+}
+
+function startAgain() {
+  board = structuredClone(_board);
+  crossFlag = _crossFlag;
+  clearCells("cross");
+  clearCells("circle");
+  document.querySelector(`#win-line`).style.zIndex = "-1";
+}
+
 function main() {
   document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector("#button").onclick = () => {
+      startAgain();
+    };
     document.querySelectorAll(".cell").forEach(function (cell, i) {
       cell.onclick = takeActionOnClick(i);
     });
