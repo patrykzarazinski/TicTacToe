@@ -13,6 +13,19 @@ let board = structuredClone(_board);
 
 let crossFlag = _crossFlag;
 
+let playerOne = 0;
+let playerTwo = 0;
+
+function calculateScore() {
+  if (!crossFlag) {
+    playerOne++;
+    document.querySelector("#playerOne").innerHTML = playerOne;
+  } else {
+    playerTwo++;
+    document.querySelector("#playerTwo").innerHTML = playerTwo;
+  }
+}
+
 function makeWin(i, possibility) {
   const mark = board[i] == cross ? "cross" : "circle";
   for (let item of possibility) {
@@ -37,6 +50,7 @@ function checkIfSomeoneWon(i) {
   for (let possibility of possibilities) {
     if (doesPossibilityWins(board[i], possibility)) {
       makeWin(i, possibility);
+      calculateScore();
       return true;
     }
   }
