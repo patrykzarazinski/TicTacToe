@@ -8,6 +8,14 @@ body {
 
 //index.html
 
+@media(min-height: 500px) {
+
+    html,
+    body {
+        overflow: hidden;
+    }
+}
+
 .block {
     padding: 20px;
     margin: 20px;
